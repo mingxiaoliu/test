@@ -2,6 +2,7 @@
 
 int main(void)
 {
-    printf("Hello git hup\n");
+    int i = 10;
+    printf("Hello GitHub %d\n", i);
     return 0;
 }
