@@ -1,0 +1,109 @@
+let mapleader=","
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Yggdroot/LeaderF'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'tpope/vim-rails.git'
+"Plugin 'tpope/vim-fugitive'
+
+Plugin 'a.vim'
+Plugin 'taglist.vim'
+Plugin 'vimwiki'
+"Plugin 'SuperTab'
+Plugin 'winmanager'
+Plugin 'bufexplorer.zip'
+Plugin 'The-NERD-tree'
+Plugin 'matrix.vim--Yang'
+Plugin 'OmniCppComplete'
+Plugin 'CmdlineComplete'
+"Plugin 'UltiSnips'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'minibufexpl.vim'
+
+"Plugin 'FencView.vim'
+"Plugin 'Conque-Shell'
+"Plugin 'Vimpress'
+"Plugin 'Markdown'
+"Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+Plugin 'c.vim'
+"Plugin 'snipMate'
+Plugin 'scrooloose/nerdcommenter'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set number
+set history=1000
+set background=dark
+syntax on
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set showmatch
+"set expandtab
+set guioptions-=T
+set vb t_vb=
+set ruler
+"set hls
+set incsearch
+set ignorecase
+set cindent
+"set cursorline
+colorscheme desert
+"taglist
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+"let Tlist_Auto_Open = 1
+nmap tl :Tlist<CR>
+nmap tm :WMToggle<CR>
+nmap tn :NERDTreeToggle<CR>
+
+"cscope config
+if has ("cscope")
+	set cscopetag
+	set csto=0
+	if filereadable("cscope.out")
+		cs add cscope.out
+	elseif $CSCOPE_DB != ""
+		cs add $CSCOPE_DB
+	endif
+
+	set cscopeverbose
+
+	"s	symbol: 	find all references to the token under cursor
+	"g	global: 	find global definitions of the token under cursor
+	"c	calls:		find all calls to the funtion name under cursor
+	"t	text:		find all instances of the text under cursor
+	"e 	egrep:		egrep search for the word under cursor
+	"f	file:		open the filename under cursor
+	"i	incudes:	find files that incude the filename under cursor
+	"d	called:		find funtions that funtion under cursor calls
+
+	nmap ta :cs find
+	nmap ts	:cs find s <C-R>=expand("<cword>")<CR><CR>
+	nmap tg	:cs find g <C-R>=expand("<cword>")<CR><CR>
+	nmap tc	:cs find c <C-R>=expand("<cword>")<CR><CR>
+	nmap tt	:cs find t <C-R>=expand("<cword>")<CR><CR>
+	nmap te	:cs find e <C-R>=expand("<cword>")<CR><CR>
+	"nmap tf	:cs find s <C-R>=expand("<cword>")<CR><CR>
+	nmap tf	:cs find f \<\><Left><Left>
+	nmap ti	:cs find i <C-R>=expand("<cword>")<CR><CR>
+	nmap td	:cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+nmap tt <C-O>
+nmap tj <C-]>
+imap <C-J> <C-O>j
+imap <C-K> <C-O>k
+imap <C-H> <C-O>h
+imap <C-L> <C-O>l
