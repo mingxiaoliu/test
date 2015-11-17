@@ -91,7 +91,7 @@ if has ("cscope")
 	"i	incudes:	find files that incude the filename under cursor
 	"d	called:		find funtions that funtion under cursor calls
 
-	nmap ta :cs find
+	nmap ta :cs find 
 	nmap ts	:cs find s <C-R>=expand("<cword>")<CR><CR>
 	nmap tg	:cs find g <C-R>=expand("<cword>")<CR><CR>
 	nmap tc	:cs find c <C-R>=expand("<cword>")<CR><CR>
