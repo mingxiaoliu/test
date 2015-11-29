@@ -1,0 +1,18 @@
+1. update all file access time, at uboot directory
+   find | xargs touch
+
+2. create an reference file
+   touch mark 
+
+3. build uboot
+   a) make O=output distclean
+   b) make O=output smdk2410_config
+   c) make O=output all
+
+4. remove all non-accessed file
+   find ./ -path ./output -prune -o -type f ! -anewer mark | xarg rm
+
+5. rebuild uboot again to make sure it is OK
+   make O=output distclean
+   make O=output smdk2410_config
+   make O=output all
