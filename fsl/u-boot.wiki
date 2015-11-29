@@ -1,0 +1,29 @@
+= call path =
+_start (arch/arm/lib/vectors.S)
+reset (arch/arm/cpu/armv7/start.S)
+_main (arch/arm/lib/crt0.S)
+board_init_f (common/board_f.c)
+board_init_r (common/board_r.c)
+initcall_run_list(init_sequence_r)
+init_sequence_r (board_r.c)
+main_loop
+do_bootz
+do_bootm_states
+	bootm_start
+	bootm_find_os
+	bootm_find_other
+		boot_get_fdt
+
+include/configs/mx6sxsabresd.h
+
+#define CONFIG_EXTRA_ENV_SETTINGS \
+
+include/env_default.h
+env_t environment __PPCENV__ = {
+
+include/asm-generic/global_data.h
+typedef struct global_data {
+
+include/configs/mx6_common.h
+
+do_bootm_linux
