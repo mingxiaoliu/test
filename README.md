@@ -6,3 +6,4 @@ I have add some new test for vim
 I have add some new test for hello
 I have add some new test for git rebase
 I have add some new test for git merge
+I have add some new test for git merge
